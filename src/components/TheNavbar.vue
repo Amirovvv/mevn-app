@@ -3,14 +3,14 @@
     <div class="p-mr-4">All Products</div>
     <div class="p-mr-4">Product 1</div>
     <div class="p-mr-4">Product 2</div>
-    <Button label=" Добавить" class="p-button-success pi pi-plus-circle" />
+    <router-link to="/add">
+      <Button label=" Добавить" class="p-button-success pi pi-plus-circle" />
+    </router-link>
   </div>
 </template>
 
 <script>
-
-export default {
-};
+export default {};
 </script>
 
 <style>
