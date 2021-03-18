@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import PrimeVue from 'primevue/config';
 import Button from "primevue/button";
+import Card from 'primevue/card';
 
 import 'primevue/resources/themes/saga-blue/theme.css'       
 import 'primevue/resources/primevue.min.css'
@@ -17,4 +18,5 @@ createApp(App)
     .use(router)
     .use(PrimeVue)
     .component('Button', Button)
+    .component('Card', Card)
     .mount('#app')
