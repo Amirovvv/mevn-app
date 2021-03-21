@@ -63,14 +63,15 @@
 
 <script>
 import { useFormAdd } from "../use/form-add";
+import { useStore } from 'vuex'
 export default {
   setup() {
+    const store = useStore()
+
     const submit = async values => {
-      console.log(values);
+      store.dispatch('request/create', values)
     }
     return {
-      
-
       ...useFormAdd(submit),
     };
   },

@@ -7,7 +7,7 @@
       class="p-mt-6 p-shadow-20"
       style="width: 16em"
       v-for="prod in products"
-      :key="prod.id"
+      :key="prod._id"
     >
       <template #header>
         <img
@@ -16,7 +16,13 @@
           src="https://u.kanobu.ru/editor/images/52/d9b4f706-1b19-4cd1-bad7-e733370a46dc.png"
         />
       </template>
-      <template #title> {{ prod.name }} </template>
+
+      <template #title
+        ><router-link :to="{ name: 'Product', params: { id: prod._id } }">
+          {{ currency(prod.price) }}</router-link
+        >
+      </template>
+
       <template #footer>
         <Button
           icon="pi pi-check"
@@ -29,36 +35,12 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { currency } from "../utils/currency";
 
 export default {
+  props: ["products"],
   setup() {
-    const products = ref([
-      {
-        id: 1,
-        name: "test 1",
-      },
-      {
-        id: 2,
-        name: "test 2",
-      },
-      {
-        id: 1,
-        name: "test 3",
-      },
-      {
-        id: 1,
-        name: "test 4",
-      },
-      {
-        id: 1,
-        name: "test 5",
-      },
-    ]);
-
-    return {
-      products,
-    };
+    return { currency };
   },
 };
 </script>
