@@ -1,31 +1,40 @@
 <template>
-  <product-card :products='products'></product-card>
+  <div v-if="products.length == 0" class="p-d-flex p-jc-center p-m-auto">
+    <div>Empty</div>
+  </div>
+  <div v-else>
+    <ProgressSpinner v-if="loading" class="p-d-flex p-jc-center p-m-auto" />
+    <product-card :products="products" v-else></product-card>
+  </div>
 </template>
 
 <script>
-import { computed, onMounted } from 'vue'
-import { useStore } from 'vuex'
-import ProductCard from '../components/ProductCard.vue'
+import { ref, computed, onMounted } from "vue";
+import { useStore } from "vuex";
+import ProductCard from "../components/ProductCard.vue";
 export default {
   components: {
-    ProductCard
+    ProductCard,
   },
   setup() {
-    const store = useStore()
+    const store = useStore();
+    const loading = ref(false);
 
-    onMounted(async ()=> {
-      await store.dispatch('request/load')
-    })
+    onMounted(async () => {
+      loading.value = true;
+      await store.dispatch("request/load");
+      loading.value = false;
+    });
 
-    const products = computed( () => store.getters['request/products'])
-    console.log(products);
+    const products = computed(() => store.getters["request/products"]);
+
     return {
-      products
-    }
-  }
-}
+      products,
+      loading,
+    };
+  },
+};
 </script>
 
 <style>
-
 </style>

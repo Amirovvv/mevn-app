@@ -10,16 +10,12 @@
       :key="prod._id"
     >
       <template #header>
-        <img
-          alt="user header"
-          style="height: 15em"
-          src="https://u.kanobu.ru/editor/images/52/d9b4f706-1b19-4cd1-bad7-e733370a46dc.png"
-        />
+        <img alt="user header" style="height: 16em" :src="prod.image" />
       </template>
 
       <template #title
         ><router-link :to="{ name: 'Product', params: { id: prod._id } }">
-          {{ currency(prod.price) }}</router-link
+          {{ subs(prod.name) }}</router-link
         >
       </template>
 
@@ -35,17 +31,20 @@
 </template>
 
 <script>
-import { currency } from "../utils/currency";
+import { subs } from "../utils/subs";
 
 export default {
   props: ["products"],
   setup() {
-    return { currency };
+    return { subs };
   },
 };
 </script>
 
 <style>
+.p-card-title {
+  word-wrap: break-word;
+}
 .p-card-content {
   display: none;
 }

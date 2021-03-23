@@ -13,6 +13,7 @@ import InputText from 'primevue/inputtext';
 import Textarea from 'primevue/textarea';
 import InputNumber from 'primevue/inputnumber';
 import Dropdown from 'primevue/dropdown';
+import ProgressSpinner from 'primevue/progressspinner';
 
 
 import 'primevue/resources/themes/saga-blue/theme.css'       
@@ -30,4 +31,5 @@ createApp(App)
     .component('Textarea', Textarea)
     .component('InputNumber', InputNumber)
     .component('Dropdown', Dropdown)
+    .component('ProgressSpinner', ProgressSpinner)
     .mount('#app')
