@@ -15,4 +15,6 @@ Full-stack application based on MEVN stack
 
 Also used by Vue UI Library - PrimeVue. By the way, a good library.
 
+To define the components, the - ***Composition Api*** was used.
+
 The design of the application is as simple as possible. It doesn't matter though. The main thing is to understand how the stack itself works. And here, of course, not everything is as good as we would like, because so far I am only a junior developer. But in the future I will improve the code, add some functionality and add comments to make it clearer. And so, in general, the process of work itself should be clear :)
