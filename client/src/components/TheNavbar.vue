@@ -1,8 +1,13 @@
 <template>
-  <div class="p-d-flex p-jc-center p-p-4 menu">
-    <div class="p-mr-4">All Products</div>
-    <div class="p-mr-4">Product 1</div>
-    <div class="p-mr-4">Product 2</div>
+  <div class="p-d-flex p-justify-center p-p-4 p-ai-center menu">
+    <router-link to="/"><div class="p-mr-4">All Products</div></router-link>
+    <router-link to="/smartphones"
+      ><div class="p-mr-4 menu-list">Smartphones</div></router-link
+    >
+    <router-link to="/notebooks">
+      <div class="p-mr-4">Notebooks</div></router-link
+    >
+
     <router-link to="/add">
       <Button label=" Добавить" class="p-button-success pi pi-plus-circle" />
     </router-link>
@@ -13,10 +18,20 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .menu {
   color: whitesmoke;
   background: rgb(48, 48, 48);
   font-size: 20px;
+}
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+a:hover,
+a.active {
+  text-decoration-color: #3eaf7c;
+  text-decoration-line: underline;
 }
 </style>

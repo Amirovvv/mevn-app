@@ -40,7 +40,16 @@ export default {
       } catch (e) {
         console.log(e);
       }
-  }},
+    },
+    async remove(_, id) {
+      try {
+        const {data} = await axios.delete(`http://localhost:5000/products/${id}`)
+        return data
+      } catch (e) {
+        console.log(e);
+      }
+    },
+},
   getters: {
     products(state) {
       return state.products

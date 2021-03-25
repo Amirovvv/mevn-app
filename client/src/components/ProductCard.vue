@@ -15,16 +15,17 @@
 
       <template #title
         ><router-link :to="{ name: 'Product', params: { id: prod._id } }">
-          {{ subs(prod.name) }}</router-link
-        >
+          {{ subs(prod.name) }}
+        </router-link>
       </template>
 
       <template #footer>
-        <Button
-          icon="pi pi-check"
-          label="Добавить в корзину"
-          style="width: 100%"
-        />
+        <router-link
+          class="btn"
+          :to="{ name: 'Product', params: { id: prod._id } }"
+        >
+          <Button icon="pi pi-list" label="Подробнее" style="width: 100%"
+        /></router-link>
       </template>
     </Card>
   </div>
@@ -47,5 +48,13 @@ export default {
 }
 .p-card-content {
   display: none;
+}
+
+a {
+  color: rgb(0, 0, 0);
+}
+
+.btn {
+  text-decoration: none;
 }
 </style>

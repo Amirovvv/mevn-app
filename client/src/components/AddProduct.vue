@@ -1,7 +1,7 @@
 <template>
   <div class="p-d-flex p-jc-center p-m-auto" style="max-width: 1000px">
     <ProgressSpinner v-if="loading" />
-    <form class="p-p-5 p-mt-6 p-shadow-20" @submit.prevent="onSubmit" v-else>
+    <form class="p-p-5 p-mt-4 p-shadow-20" @submit.prevent="onSubmit" v-else>
       <div>
         <h1>Добавить продукт</h1>
       </div>
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref } from 'vue'
 import { useFormAdd } from "../use/form-add";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
@@ -89,17 +89,16 @@ export default {
   setup() {
     const store = useStore();
     const router = useRouter();
-    const loading = ref(false);
+    const loading = ref(false)
 
     const submit = async (values) => {
-      loading.value = true;
+      loading.value = true
       await store.dispatch("request/create", values);
-      loading.value = false;
+      loading.value = false
       router.push("/");
     };
     return {
-      ...useFormAdd(submit),
-      loading,
+      ...useFormAdd(submit), loading
     };
   },
 };

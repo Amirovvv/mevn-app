@@ -7,12 +7,22 @@
       v-else
     >
       <img :src="product.image" style="width: 300px; height: 350px" />
-      <div style="width: 620px;  word-wrap:break-word;">
+      <div style="width: 620px; word-wrap: break-word">
         <h1>{{ product.name }}</h1>
 
         <h3>{{ currency(product.price) }}</h3>
 
         {{ product.desc }}
+
+        <div class="p-mt-3">
+          <Button
+            label="Delete"
+            icon="pi pi-trash"
+            class="p-button-danger"
+            @click="remove"
+          />
+          
+        </div>
       </div>
     </div>
   </div>
@@ -20,7 +30,7 @@
 
 <script>
 import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { currency } from "../utils/currency";
 
@@ -28,6 +38,7 @@ export default {
   setup() {
     const store = useStore();
     const route = useRoute();
+    const router = useRouter();
     const product = ref({});
     const loading = ref(false);
 
@@ -37,10 +48,16 @@ export default {
       loading.value = false;
     });
 
+    const remove = async () => {
+      await store.dispatch("request/remove", route.params.id)
+      router.push('/')
+    };
+
     return {
       product,
       currency,
       loading,
+      remove
     };
   },
 };

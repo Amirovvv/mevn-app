@@ -28,4 +28,11 @@ router.get('/:id', async (req, res) => {
     res.json(await Product.findById(req.params.id));
 });
 
+router.delete('/:id', async (req, res) => {
+    await Product.findByIdAndDelete(req.params.id);
+    res.json({
+        state: 'deleted'
+    });
+});
+
 export default router
