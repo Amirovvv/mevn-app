@@ -10,7 +10,7 @@
       :key="prod._id"
     >
       <template #header>
-        <img alt="user header" style="height: 16em" :src="prod.image" />
+        <img alt="user header" style="height: 17em; width: 9em; margin-top: 1em;" :src="prod.image" />
       </template>
 
       <template #title
@@ -24,7 +24,7 @@
           class="btn"
           :to="{ name: 'Product', params: { id: prod._id } }"
         >
-          <Button icon="pi pi-list" label="Подробнее" style="width: 100%"
+          <Button icon="pi pi-list" label="More details" style="width: 100%"
         /></router-link>
       </template>
     </Card>
@@ -45,6 +45,12 @@ export default {
 <style>
 .p-card-title {
   word-wrap: break-word;
+  font-size: 1.2em !important;
+  margin-bottom: 0 !important;
+  font-weight: 500 !important;
+}
+.p-card-header {
+  text-align: center
 }
 .p-card-content {
   display: none;

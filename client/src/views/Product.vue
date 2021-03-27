@@ -6,7 +6,7 @@
       style="max-width: 1000px"
       v-else
     >
-      <img :src="product.image" style="width: 300px; height: 350px" />
+      <img :src="product.image" style="width: 250px; height: 450px" />
       <div style="width: 620px; word-wrap: break-word">
         <h1>{{ product.name }}</h1>
 

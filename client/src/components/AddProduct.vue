@@ -3,13 +3,13 @@
     <ProgressSpinner v-if="loading" />
     <form class="p-p-5 p-mt-4 p-shadow-20" @submit.prevent="onSubmit" v-else>
       <div>
-        <h1>Добавить продукт</h1>
+        <h1>Add product</h1>
       </div>
       <div class="p-mt-3">
         <InputText
           id="inputtext"
           type="text"
-          placeholder="Название"
+          placeholder="Name"
           style="width: 600px"
           v-model="name"
           @blur="nBlur"
@@ -25,7 +25,7 @@
           rows="5"
           cols="30"
           style="width: 600px"
-          placeholder="Описание"
+          placeholder="Description"
           v-model="desc"
           @blur="dBlur"
           :class="{ 'p-invalid': dError }"
@@ -38,7 +38,7 @@
         <InputNumber
           id="inputnumber"
           style="width: 100px"
-          placeholder="Цена"
+          placeholder="Price"
           v-model.number="price"
           @blur="pBlur"
           :class="{ 'p-invalid': pError }"
@@ -53,7 +53,7 @@
           v-model="type"
           @blur="tBlur"
           :options="typeProduct"
-          placeholder="Тип продукта"
+          placeholder="Type of product"
           style="width: 190px"
         />
         <div v-if="tError">
@@ -62,7 +62,7 @@
       </div>
 
       <div class="p-mt-4">
-        <label for="name">Изображение</label>
+        <label for="name">Image</label>
         <input @change="handleImg" type="file" @blur="iBlur" />
         <div v-if="iError">
           <small>{{ iError }}</small>
@@ -71,7 +71,7 @@
       </div>
 
       <Button
-        label=" Добавить товар"
+        label=" Add product"
         class="p-button-success pi pi-plus-circle p-mt-4"
         type="submit"
         :disabled="isSubmitting"

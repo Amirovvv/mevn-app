@@ -28,7 +28,7 @@ export default {
 
     const products = computed(() =>
       store.getters["request/products"].filter((product) => {
-        return product.type.includes("Планшет");
+        return product.type.includes("Watch");
       })
     );
 

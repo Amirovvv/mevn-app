@@ -5,11 +5,11 @@
       ><div class="p-mr-4 menu-list">Smartphones</div></router-link
     >
     <router-link to="/notebooks">
-      <div class="p-mr-4">Notebooks</div></router-link
+      <div class="p-mr-4">Watch</div></router-link
     >
 
     <router-link to="/add">
-      <Button label=" Добавить" class="p-button-success pi pi-plus-circle" />
+      <Button label=" Add" class="p-button-success pi pi-plus-circle" />
     </router-link>
   </div>
 </template>
