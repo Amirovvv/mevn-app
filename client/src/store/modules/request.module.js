@@ -1,4 +1,5 @@
 import axios from 'axios'
+const url = "https://nodejs-mongo-db.herokuapp.com"
 
 export default {
   namespaced: true,
@@ -18,7 +19,7 @@ export default {
   actions: {
     async create({ commit }, payload) {
       try {
-        const {data} = await axios.post('http://localhost:5000/products', payload)
+        const {data} = await axios.post(`${url}/products`, payload)
         commit('addProduct', {...payload, id: data.name})
       } catch (e) {
         console.log(e);
@@ -26,7 +27,7 @@ export default {
     },
     async load({ commit }) {
       try {
-        const {data} = await axios.get('http://localhost:5000/products')
+        const {data} = await axios.get(`${url}/products`)
         const products = Object.keys(data).map(id => ({...data[id], id}))
         commit('setProducts', products)
       } catch (e) {
@@ -35,7 +36,7 @@ export default {
     },
     async loadOne(_, id) {
       try {
-        const {data} = await axios.get(`http://localhost:5000/products/${id}`)
+        const {data} = await axios.get(`${url}/products/${id}`)
         return data
       } catch (e) {
         console.log(e);
@@ -43,7 +44,7 @@ export default {
     },
     async remove(_, id) {
       try {
-        const {data} = await axios.delete(`http://localhost:5000/products/${id}`)
+        const {data} = await axios.delete(`${url}/products/${id}`)
         return data
       } catch (e) {
         console.log(e);
